@@ -1,7 +1,7 @@
 Summary: nethserver collectd configuration
 Name: nethserver-collectd
 Version: @@VERSION@@
-Release: @@RELEASE@@%{?dist}
+Release: @@RELEASE@@
 License: GPL
 Source: %{name}-%{version}.tar.gz
 BuildArch: noarch
@@ -35,7 +35,6 @@ rm -rf $RPM_BUILD_ROOT
 (cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
 
 %{genfilelist} $RPM_BUILD_ROOT > e-smith-%{version}-filelist
-
 echo "%doc COPYING"          >> e-smith-%{version}-filelist
 
 %clean 
