@@ -1,0 +1,18 @@
+##############################################################################
+# LoadPlugin section                                                         #
+##############################################################################
+
+LoadPlugin cpu
+LoadPlugin load
+LoadPlugin processes
+LoadPlugin memory
+LoadPlugin swap
+LoadPlugin uptime
+
+LoadPlugin df
+LoadPlugin disk
+
+LoadPlugin interface
+LoadPlugin network
+
+Include "/etc/collectd.d"
