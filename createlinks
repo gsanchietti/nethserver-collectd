@@ -28,10 +28,7 @@ use esmith::Build::CreateLinks  qw(:all);
 
 my $event = "nethserver-collectd-update";
 
-event_actions($event,
-              'initialize-default-databases' => '00',
-              'nethserver-collectd-conf' => '02',
-              'runlevel-adjust' => '40');
+event_actions($event,'initialize-default-databases' => '00');
 templates2events("/etc/collectd.conf",  $event);
 event_services($event, 'collectd' => 'restart');
 
@@ -45,15 +42,5 @@ $event = "nethserver-collectd-save";
 templates2events("/etc/collectd.conf",  $event);
 event_services($event, 'collectd' => 'restart');
 
-
-#--------------------------------------------------
-# actions for nethserver-collectd-uninstall event
-#--------------------------------------------------
-
-$event = "nethserver-collectd-uninstall";
-
-event_actions($event,
-              'nethserver-collectd-uninstall' => '02',
-              'runlevel-adjust' => '50');
 
 exit;
