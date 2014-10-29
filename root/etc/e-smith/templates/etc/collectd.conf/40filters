@@ -9,7 +9,6 @@
 # Load required matches:
 #LoadPlugin match_empty_counter
 #LoadPlugin match_hashed
-#LoadPlugin match_regex
 #LoadPlugin match_value
 #LoadPlugin match_timediff
 

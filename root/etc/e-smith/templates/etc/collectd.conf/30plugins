@@ -13,6 +13,18 @@ LoadPlugin df
 LoadPlugin disk
 
 LoadPlugin interface
-LoadPlugin network
+LoadPlugin match_regex
 
+Include "/etc/collectd.precache"
 Include "/etc/collectd.d"
+
+<Plugin interface>
+        Interface "lo"
+        IgnoreSelected true
+</Plugin>
+
+<Plugin "disk">
+        Disk "/[hs]d[a-z][0-9]$/"
+        Disk "/dm-[0-9]$/"
+        IgnoreSelected true
+</Plugin>
