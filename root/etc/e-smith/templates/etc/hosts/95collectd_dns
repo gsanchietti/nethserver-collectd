@@ -1,0 +1,8 @@
+#
+# 95collectd_dns
+#
+{   
+    my $dns = $dns{'NameServers'} || return '';
+    my @ns = split(/,/,$dns);
+    $OUT .= $ns[0]."\tDNS\n";
+}

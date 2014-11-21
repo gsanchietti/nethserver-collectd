@@ -30,6 +30,8 @@ my $event = "nethserver-collectd-update";
 
 event_actions($event,'initialize-default-databases' => '00');
 templates2events("/etc/collectd.conf",  $event);
+templates2events("/etc/collectd.d/ping.conf",  $event);
+templates2events("/etc/hosts",  $event);
 event_services($event, 'collectd' => 'restart');
 
 
@@ -40,6 +42,8 @@ event_services($event, 'collectd' => 'restart');
 $event = "nethserver-collectd-save";
 
 templates2events("/etc/collectd.conf",  $event);
+templates2events("/etc/collectd.d/ping.conf",  $event);
+templates2events("/etc/hosts",  $event);
 event_services($event, 'collectd' => 'restart');
 
 

@@ -1,0 +1,22 @@
+{
+   use esmith::NetworksDB;
+   my $hosts = $collectd{'PingHosts'} || '';
+   my $dns = $dns{'NameServers'} || '';
+   my $ndb = esmith::NetworksDB->open_ro() || return '';
+
+   $OUT .= "<Plugin \"ping\">\n";
+   $OUT .= "Interval 10\n";
+   $OUT .= "MaxMissed 30\n";
+   foreach (split(/,/,$hosts)) {
+      $OUT .= "Host \"$_\"\n";
+   }
+   if ($dns ne '') {
+       $OUT .= "Host DNS\n";
+   }
+   # Do not use NethServer::Firewal library (maybe it's not installed)
+   foreach ( $ndb->get_all_by_prop( type => 'provider' ) ) {
+       my $checkip = $_->prop('checkip') || next;
+       $OUT .= "Host ".$_->key."\n";
+   }
+   $OUT .= "</Plugin>\n";
+}
