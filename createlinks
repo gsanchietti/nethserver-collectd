@@ -46,5 +46,13 @@ templates2events("/etc/collectd.d/ping.conf",  $event);
 templates2events("/etc/hosts",  $event);
 event_services($event, 'collectd' => 'restart');
 
+#--------------------------------------------------
+# actions for nethserver-firewall-base-save event
+#--------------------------------------------------
+
+$event = "nethserver-firewall-base-save";
+templates2events("/etc/hosts",  $event);
+event_services($event, 'collectd' => 'reload');
+
 
 exit;
