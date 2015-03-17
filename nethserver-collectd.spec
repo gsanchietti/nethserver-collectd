@@ -1,6 +1,6 @@
 Summary: nethserver collectd configuration
 Name: nethserver-collectd
-Version: 1.1.0
+Version: 1.2.0
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -40,6 +40,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 
 %changelog
+* Tue Mar 17 2015 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.2.0-1
+- Add collectd to backup-data - Enhancement #3072 [NethServer]
+- collectd ping reload after wan change - Bug #3000 [NethServer]
+
 * Tue Dec 02 2014 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.1.0-1.ns6
 - collectd ping plugin to monitor network latency - Feature #2938 [NethServer]
 
