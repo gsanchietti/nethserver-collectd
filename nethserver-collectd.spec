@@ -26,10 +26,9 @@ NethServer collectd configuration
 perl createlinks
 
 %install
-rm -rf $RPM_BUILD_ROOT
-(cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
-
-%{genfilelist} $RPM_BUILD_ROOT > e-smith-%{version}-filelist
+rm -rf %{buildroot}
+(cd root   ; find . -depth -print | cpio -dump %{buildroot})
+%{genfilelist} %{buildroot} > e-smith-%{version}-filelist
 
 %files -f e-smith-%{version}-filelist
 %defattr(-,root,root)
@@ -37,6 +36,7 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/collectd.d/filter.conf
 %config /etc/collectd.d/unixsock.conf
 %doc COPYING
+%dir %{_nseventsdir}/%{name}-update
 
 %changelog
 * Tue Jun 14 2016 Davide Principi <davide.principi@nethesis.it> - 2.0.0-1
