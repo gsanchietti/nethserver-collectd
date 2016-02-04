@@ -13,10 +13,5 @@
    if ($dns ne '') {
        $OUT .= "Host DNS\n";
    }
-   # Do not use NethServer::Firewal library (maybe it's not installed)
-   foreach ( $ndb->get_all_by_prop( type => 'provider' ) ) {
-       my $checkip = $_->prop('checkip') || next;
-       $OUT .= "Host ".$_->key."\n";
-   }
    $OUT .= "</Plugin>\n";
 }
