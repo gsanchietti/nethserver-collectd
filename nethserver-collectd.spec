@@ -9,9 +9,11 @@ URL: %{url_prefix}/%{name}
 
 BuildRequires: nethserver-devtools
 
-AutoReq: no
 Requires: nethserver-base
-Requires: collectd >= 5.5.0, collectd-rrdtool, collectd-ping
+Requires: collectd >= 5.5.0
+Requires: collectd-rrdtool
+Requires: collectd-ping
+Requires: collectd-disk
 
 %description
 NethServer collectd configuration
