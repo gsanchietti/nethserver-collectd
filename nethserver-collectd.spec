@@ -11,17 +11,13 @@ BuildRequires: nethserver-devtools
 
 AutoReq: no
 Requires: nethserver-base
-Requires: collectd, collectd-rrdtool, collectd-ping
+Requires: collectd >= 5.5.0, collectd-rrdtool, collectd-ping
 
 %description
 NethServer collectd configuration
 
 %prep
 %setup
-
-%post
-
-%preun
 
 %build
 perl createlinks
@@ -31,13 +27,10 @@ rm -rf $RPM_BUILD_ROOT
 (cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
 
 %{genfilelist} $RPM_BUILD_ROOT > e-smith-%{version}-filelist
-echo "%doc COPYING"          >> e-smith-%{version}-filelist
-
-%clean 
-rm -rf $RPM_BUILD_ROOT
 
 %files -f e-smith-%{version}-filelist
 %defattr(-,root,root)
+%doc COPYING
 
 %changelog
 * Thu Feb 18 2016 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.2.1-1
