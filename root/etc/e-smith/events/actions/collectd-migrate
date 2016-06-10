@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#
+# Copyright (C) 2016 Nethesis S.r.l.
+# http://www.nethesis.it - support@nethesis.it
+#
+# This script is part of NethServer.
+#
+# NethServer is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License,
+# or any later version.
+#
+# NethServer is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with NethServer.  If not, see <http://www.gnu.org/licenses/>.
+#
+service collectd status > /dev/null
+COLLECTD_STATUS=`echo $?`
+COLLECTD_SERVICE=`service collectd status | awk '{print $1}'`
+
+# check if already migrated from 4 to 5
+if [ ! -f /var/lib/collectd/migrated ]; then
+    # stop all collectd instances
+    killall collectd
+    # start migration script
+    perl /usr/share/doc/collectd-contrib-5.5.0/contrib/migrate-4-5.px > /tmp/migrate-collectd-from-4.sh
+    rm -f /tmp/rrd_filter.px
+    cp /usr/share/doc/collectd-contrib-5.5.0/contrib/rrd_filter.px /tmp/
+    chmod +x /tmp/rrd_filter.px
+    sed -i 's/rrd_filter\.px/\/tmp\/rrd_filter\.px/g' /tmp/migrate-collectd-from-4.sh
+    echo "Migration from v4 to v5: OK" > /var/lib/collectd/migrated
+fi
