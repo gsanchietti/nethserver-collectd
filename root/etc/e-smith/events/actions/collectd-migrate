@@ -20,16 +20,14 @@
 # along with NethServer.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# check if already migrated from 4 to 5
-if [ -d /var/lib/collectd/$(hostname)/df-root ]; then
-    exit 0
+# check if not migrated from 4 to 5
+if [ -d /var/lib/collectd/$(hostname)/df ]; then
+    # stop all collectd instances
+    killall collectd
+    # start migration script
+    perl /usr/share/doc/collectd-contrib-5.5.0/contrib/migrate-4-5.px --rrdfilter "perl /usr/share/doc/collectd-contrib-5.5.0/contrib/rrd_filter.px" > /tmp/migrate-collectd-from-4.sh
+    sh /tmp/migrate-collectd-from-4.sh
+    rm -f /tmp/migrate-collectd-from-4.sh
 fi
 
-# stop all collectd instances
-killall collectd
-# start migration script
-perl /usr/share/doc/collectd-contrib-5.5.0/contrib/migrate-4-5.px > /tmp/migrate-collectd-from-4.sh
-rm -f /tmp/rrd_filter.px
-cp /usr/share/doc/collectd-contrib-5.5.0/contrib/rrd_filter.px /tmp/
-chmod +x /tmp/rrd_filter.px
-sed -i 's/rrd_filter\.px/\/tmp\/rrd_filter\.px/g' /tmp/migrate-collectd-from-4.sh
+exit 0
