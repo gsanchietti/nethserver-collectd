@@ -1,6 +1,6 @@
 Summary: nethserver collectd configuration
 Name: nethserver-collectd
-Version: 1.2.1
+Version: 2.0.0
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -36,6 +36,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING
 
 %changelog
+* Tue Jun 14 2016 Davide Principi <davide.principi@nethesis.it> - 2.0.0-1
+- Collectd 5 - Feature #3403 [NethServer]
+
 * Thu Feb 18 2016 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 1.2.1-1
 - Latency monitoring in multiwan - Enhancement #3351
 
