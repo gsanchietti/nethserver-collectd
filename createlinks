@@ -32,6 +32,7 @@ event_actions($event,'initialize-default-databases' => '00');
 event_actions($event,'collectd-migrate' => '20');
 templates2events("/etc/collectd.conf",  $event);
 templates2events("/etc/collectd.d/ping.conf",  $event);
+templates2events("/etc/collectd.d/threshold.conf",  $event);
 templates2events("/etc/hosts",  $event);
 event_services($event, 'collectd' => 'restart');
 
@@ -44,6 +45,7 @@ $event = "nethserver-collectd-save";
 
 templates2events("/etc/collectd.conf",  $event);
 templates2events("/etc/collectd.d/ping.conf",  $event);
+templates2events("/etc/collectd.d/threshold.conf",  $event);
 templates2events("/etc/hosts",  $event);
 event_services($event, 'collectd' => 'restart');
 
@@ -54,6 +56,7 @@ event_services($event, 'collectd' => 'restart');
 $event = "nethserver-firewall-base-save";
 templates2events("/etc/collectd.conf",  $event);
 templates2events("/etc/collectd.d/ping.conf",  $event);
+templates2events("/etc/collectd.d/threshold.conf",  $event);
 templates2events("/etc/hosts",  $event);
 event_services($event, 'collectd' => 'restart');
 
