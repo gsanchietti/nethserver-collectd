@@ -33,6 +33,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f e-smith-%{version}-filelist
 %defattr(-,root,root)
+%config /etc/collectd.d/00plugins.conf
+%config /etc/collectd.d/filter.conf
+%config /etc/collectd.d/unixsock.conf
+%config(noreplace) /etc/collectd.d/threshold.conf
 %doc COPYING
 
 %changelog
@@ -60,4 +64,3 @@ rm -rf $RPM_BUILD_ROOT
 
 * Thu Feb 21 2013 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> 1.0.0-1
 - First release
-
