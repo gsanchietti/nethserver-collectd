@@ -36,7 +36,6 @@ rm -rf $RPM_BUILD_ROOT
 %config /etc/collectd.d/00plugins.conf
 %config /etc/collectd.d/filter.conf
 %config /etc/collectd.d/unixsock.conf
-%config(noreplace) /etc/collectd.d/threshold.conf
 %doc COPYING
 
 %changelog
