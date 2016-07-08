@@ -1,6 +1,6 @@
 Summary: nethserver collectd configuration
 Name: nethserver-collectd
-Version: 2.0.0
+Version: 2.0.1
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -37,6 +37,9 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Fri Jul 08 2016 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 2.0.1-1
+- First NS 7 release
+
 * Tue Jun 14 2016 Davide Principi <davide.principi@nethesis.it> - 2.0.0-1
 - Collectd 5 - Feature #3403 [NethServer]
 
