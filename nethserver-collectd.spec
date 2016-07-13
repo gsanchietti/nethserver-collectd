@@ -1,6 +1,6 @@
 Summary: nethserver collectd configuration
 Name: nethserver-collectd
-Version: 2.0.0
+Version: 2.0.2
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -39,6 +39,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING
 
 %changelog
+* Wed Jul 13 2016 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 2.0.2-1
+- Collectd 5: remove threshold plugin - Enhancement #3414 [NethServer]
+
 * Tue Jun 14 2016 Davide Principi <davide.principi@nethesis.it> - 2.0.0-1
 - Collectd 5 - Feature #3403 [NethServer]
 
