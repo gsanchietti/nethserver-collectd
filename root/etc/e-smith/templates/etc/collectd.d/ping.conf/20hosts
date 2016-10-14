@@ -11,7 +11,8 @@
       $OUT .= "Host \"$_\"\n";
    }
    if ($dns ne '') {
-       $OUT .= "Host DNS\n";
+       my @ns = split(/,/,$dns);
+       $OUT .= "Host $ns[0]\n";
    }
    $OUT .= "</Plugin>\n";
 }
