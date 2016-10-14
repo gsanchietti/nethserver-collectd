@@ -1,6 +1,6 @@
 Summary: nethserver collectd configuration
 Name: nethserver-collectd
-Version: 3.0.1
+Version: 3.0.2
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -37,6 +37,9 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Fri Oct 14 2016 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 3.0.2-1
+- Collectd: add memory plugin - NethServer/dev#5128
+
 * Tue Sep 06 2016 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 3.0.1-1
 - Backup data: some files not included in backup - Bug NethServer/dev#5101
 
