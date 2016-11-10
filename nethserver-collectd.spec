@@ -1,6 +1,6 @@
 Summary: nethserver collectd configuration
 Name: nethserver-collectd
-Version: 3.0.3
+Version: 3.0.4
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -37,6 +37,9 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Thu Nov 10 2016 Davide Principi <davide.principi@nethesis.it> - 3.0.4-1
+- collectd: unixsock plugin: bind failed: Address already in use - Bug NethServer/dev#5147
+
 * Thu Oct 20 2016 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 3.0.3-1
 - NethServer joined to AD fail Kerberos ticket renewal - Bug #3428 [Forward port NethServer 6]
 
