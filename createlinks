@@ -44,4 +44,13 @@ $event = "nethserver-hosts-save";
 templates2events("/etc/collectd.d/ping.conf",  $event);
 event_services($event, 'collectd' => 'restart');
 
+
+#--------------------------------------------------
+# actions for post-restore-data event
+#--------------------------------------------------
+
+$event = "post-restore-data";
+
+event_actions($event,'nethserver-collectd-ns6upgrade' => '60');
+
 exit;
