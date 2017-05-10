@@ -1,6 +1,6 @@
 Summary: nethserver collectd configuration
 Name: nethserver-collectd
-Version: 3.0.4
+Version: 3.0.5
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -37,6 +37,9 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Wed May 10 2017 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 3.0.5-1
+- Upgrade from NS 6 via backup and restore - NethServer/dev#5234
+
 * Thu Nov 10 2016 Davide Principi <davide.principi@nethesis.it> - 3.0.4-1
 - collectd: unixsock plugin: bind failed: Address already in use - Bug NethServer/dev#5147
 
