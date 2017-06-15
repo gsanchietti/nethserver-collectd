@@ -1,6 +1,6 @@
 Summary: nethserver collectd configuration
 Name: nethserver-collectd
-Version: 3.0.5
+Version: 3.0.6
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -37,6 +37,9 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Thu Jun 15 2017 Stefano Fancello <stefano.fancello@nethesis.it> - 3.0.6-1
+- collectd ping plugin segfault - Bug NethServer/dev#5316
+
 * Wed May 10 2017 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 3.0.5-1
 - Upgrade from NS 6 via backup and restore - NethServer/dev#5234
 
