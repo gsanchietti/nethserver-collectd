@@ -6,7 +6,7 @@
 
    $OUT .= "<Plugin \"ping\">\n";
    $OUT .= "Interval 5\n";
-   $OUT .= "MaxMissed 30\n";
+   $OUT .= "MaxMissed -1\n";
    foreach (split(/,/,$hosts)) {
       $OUT .= "Host \"$_\"\n";
    }
