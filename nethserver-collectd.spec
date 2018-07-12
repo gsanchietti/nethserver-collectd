@@ -1,6 +1,6 @@
 Summary: nethserver collectd configuration
 Name: nethserver-collectd
-Version: 3.0.6
+Version: 3.0.7
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -37,6 +37,9 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Thu Jul 12 2018 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 3.0.7-1
+- Hide QoS ifb devices - nethserver-collectd#10
+
 * Thu Jun 15 2017 Stefano Fancello <stefano.fancello@nethesis.it> - 3.0.6-1
 - collectd ping plugin segfault - Bug NethServer/dev#5316
 
