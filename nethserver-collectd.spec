@@ -1,6 +1,6 @@
 Summary: nethserver collectd configuration
 Name: nethserver-collectd
-Version: 3.0.7
+Version: 3.0.8
 Release: 1%{?dist}
 License: GPL
 Source: %{name}-%{version}.tar.gz
@@ -37,6 +37,9 @@ rm -rf %{buildroot}
 %dir %{_nseventsdir}/%{name}-update
 
 %changelog
+* Wed May 22 2019 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 3.0.8-1
+- cron.daily: don't fails if dir names have spaces
+
 * Thu Jul 12 2018 Giacomo Sanchietti <giacomo.sanchietti@nethesis.it> - 3.0.7-1
 - Hide QoS ifb devices - nethserver-collectd#10
 
