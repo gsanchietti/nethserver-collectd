@@ -17,21 +17,8 @@ This package will install a base collectd configuration. Default enabled modules
 * interface
 * network
 * rrdtool
-* ping
 
 No configuration is needed, collectd is enabled by default when installed.
-
-Ping plugin
-===========
-
-The ping plugin sends an ICMP packet every 5 seconds to:
-* upstream DNS
-* every checkip of enabled provider (see :ref:`section-multiwan`) 
-
-Additional hosts must be added to the ``PingHosts`` property: ::
-
- config setprop collectd PingHosts www.nethesis.it,www.nethserver.org
- signal-event nethserver-collectd-update
 
 Web interface
 =============

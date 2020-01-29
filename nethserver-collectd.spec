@@ -12,7 +12,6 @@ BuildRequires: nethserver-devtools
 Requires: nethserver-base
 Requires: collectd >= 5.5.0
 Requires: collectd-rrdtool
-Requires: collectd-ping
 
 %description
 NethServer collectd configuration
